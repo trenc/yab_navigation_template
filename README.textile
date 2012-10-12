@@ -1,0 +1,163 @@
+h1. yab_navigation_template
+
+This is a generic Textpattern template for a section based 3-level navigation.
+
+*Version:* 0.1
+
+h2. Table of contents
+
+# "Description":#help-section01
+# "Usage":#help-section02
+# "Examples":#help-section03
+# "Pros'n'Cons":#help-section04
+# "License":#help-section05
+# "Author contact":#help-section06
+
+h2(#help-section01). Description
+
+This generic template can be used in most navigation modes and styles. It has two targets in mind:
+
+h3. Flexible
+
+You can use this template for most navigation modes. So you can use it for a simple one-level or two-level navigation. But you can also use it for a 3-level navigation.
+*Hint:* If you want to use a 4-level navigation you really have to rethink your informational structure.
+
+h3. Easy to use
+
+The output of the navigation structure depends only on the given or not given @<txp:varaible />@. Not more configuration is needed. So it can be used by users who are not so familar with different Textpattern tags (@<txp:tag />@).
+
+For instance you can easily create the following comlpex navigation strucure:
+
+bc.     * 1. Home
+    * 2. Navpoint
+          o 2.1 Navpoint
+                + 2.1.1 Navpoint
+                + 2.1.2 Navpoint
+          o 2.2 Navpoint
+                + 2.2.1 Navpoint
+                + 2.2.2 Navpoint
+          o 2.3 Navpoint
+                + 2.3.1 Navpoint
+                + 2.3.2 Navpoint
+          o 2.4 Navpoint
+          o 2.5 Navpoint
+    * 3. Navpoint
+          o 3.1 Navpoint
+                + 3.1.1 Navpoint
+                + 3.1.2 Navpoint
+          o 3.2 Navpoint
+                + 3.2.1 Navpoint
+                + 3.2.2 Navpoint
+          o 3.3 Navpoint
+                + 3.3.1 Navpoint
+                + 3.3.2 Navpoint
+          o 3.4 Navpoint
+          o 3.5 Navpoint
+    * 4. Navpoint
+          o 4.1 Navpoint
+                + 4.1.1 Navpoint
+                + 4.1.2 Navpoint
+          o 4.2 Navpoint
+                + 4.2.1 Navpoint
+                + 4.2.2 Navpoint
+          o 4.3 Navpoint
+                + 4.3.1 Navpoint
+                + 4.3.2 Navpoint
+          o 4.4 Navpoint
+          o 4.5 Navpoint
+    * 5. Navpoint
+    * 6. Navpoint
+
+or a not so complex structure such as:
+
+bc.     * 1. Home
+    * 2. Navpoint
+          o 2.1 Navpoint
+                + 2.1.1 Navpoint
+                + 2.1.2 Navpoint
+    * 3. Navpoint
+    * 4. Navpoint
+
+h2(#help-section02). Usage
+
+h3. Installing
+
+You can grab the template here "yab_navigation_template":http://www.yablo.de/file_download/84/yab_navigation_template_v0.1.txt or download it directly here from GitHub.
+
+Copy the content of the file and paste in your navigation form or directly in your page template.
+
+h3. Setup
+
+In the head of the template are some @<txp:variable />@ entries. This is the template configuration and these should be filled out with yours site values.
+
+bc.. <!--  configutaration -->
+
+<!-- This will be the title of the link to your frontpage -->
+<txp:variable name="home_title" value="Home" />
+
+<!-- Sort method for articles -->
+<txp:variable name="sort" value="title asc" />
+
+<!-- Your navigation structure -->
+<txp:variable name="base_section" value="navigation" />
+    <txp:variable name="section1" value="1-navpoint" />
+      <txp:variable name="section11" value="11-navpoint" />
+      <txp:variable name="section12" value="12-navpoint" />
+      <txp:variable name="section13" value="13-navpoint" />
+    <txp:variable name="section2" value="2-navpoint" />
+      <txp:variable name="section21" value="21-navpoint" />
+      <txp:variable name="section22" value="22-navpoint" />
+      <txp:variable name="section23" value="23-navpoint" />
+    <txp:variable name="section3" value="3-navpoint" />
+      <txp:variable name="section31" value="31-navpoint" />
+      <txp:variable name="section32" value="32-navpoint" />
+      <txp:variable name="section33" value="33-navpoint" />
+
+<!--  configutaration/end -->
+
+p. Fill this with your corresponding sections and subsections. The order will be the displayed navigation order of the sections. If you want to change the article order by yourself you can change the @<txp:variable name="sort" value="title asc" />@ f.i. to @<txp:variable name="sort" value="position asc" />@ and use the great "stm_article_order":http://textpattern.org/plugins/868/stm_article_order.
+
+If you don't need all sections, don't remove it - only leave the value blank.
+
+And for displaying the aricles place this in your page template:
+
+bc. <txp:if_individual_article>
+	<txp:article status="4" />
+<txp:else />
+	<txp:article status="5" />
+</txp:if_individual_article>
+
+So the »section articles« (article, that represent the section site) have to be *fixed* and the others *live*.
+
+h3(#help-section03). Examples
+
+For a better understanding how to handle with the fixed and live articles I set up an "example":http://demoshop.yablo.de/navigation/.
+
+h2(#help-section04). Pros'n'Cons
+
+h3. Pros
+
+* easy to use
+* fexible
+* with some TXP tag experience it's easily extendible, modifiable
+* active/passive css-classes on @<li>@
+* open/closed css-classes on @<ul>@ (I know on @<li>@ it would better but it's not so easy to implement.)
+
+h3. Cons
+
+* the URI structure will not represent your navigation structure by subsections (so actually it's a fake navigation)
+* if fully used it has more mysql-queries/load than a self coded/hardcoded or a subsection-menu plugin
+* it's limited to a 3-level navigation (horizontal and in hierarchy/vertical), but can be enhanced if you are familiar with TXP tags
+
+
+h2(#help-section05). Licence
+
+This plugin is released under the GNU General Public License Version 2 and above
+
+* Version 2: "http://www.gnu.org/licenses/gpl-2.0.html":http://www.gnu.org/licenses/gpl-2.0.html
+* Version 3: "http://www.gnu.org/licenses/gpl-3.0.html":http://www.gnu.org/licenses/gpl-3.0.html
+
+h2(#help-section06). Author contact
+
+* "Plugin on GitHub":https://github.com/trenc/yab_navigation_template
+* "Plugin on textpattern forum":http://forum.textpattern.com/viewtopic.php?id=30032
