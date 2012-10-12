@@ -129,7 +129,7 @@ bc. <txp:if_individual_article>
 
 So the »section articles« (article, that represent the section site) have to be *fixed* and the others *live*.
 
-h3(#help-section03). Examples
+h2(#help-section03). Examples
 
 For a better understanding how to handle with the fixed and live articles I set up an "example":http://demoshop.yablo.de/navigation/.
 
@@ -159,5 +159,6 @@ This plugin is released under the GNU General Public License Version 2 and above
 
 h2(#help-section06). Author contact
 
-* "Plugin on GitHub":https://github.com/trenc/yab_navigation_template
-* "Plugin on textpattern forum":http://forum.textpattern.com/viewtopic.php?id=30032
+* "Template on author's site":http://www.yablo.de/article/458/yab_navigation_template-a-textpattern-navigation-template
+* "Template on GitHub":https://github.com/trenc/yab_navigation_template
+* "Template on textpattern forum":http://forum.textpattern.com/viewtopic.php?id=30032
